@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SweetURLRequest",
+        "repositoryURL": "https://github.com/ralfebert/SweetURLRequest.git",
+        "state": {
+          "branch": null,
+          "revision": "cb01ba8ca24216032933545218333d63c25fc627",
+          "version": "0.1.13"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
