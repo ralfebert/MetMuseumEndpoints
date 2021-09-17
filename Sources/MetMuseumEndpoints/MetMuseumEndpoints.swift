@@ -346,10 +346,10 @@ public struct MetMuseumEndpoints {
         )
     }
 
-    private func request<T: Decodable>(_ urlRequest: URLRequest, type _: T.Type) async throws -> T {
+    private func request<T: Decodable>(_ urlRequest: URLRequest, type: T.Type = T.self) async throws -> T {
         let (data, response) = try await urlSession.data(for: urlRequest)
         try expectSuccess(response: response)
-        return try decoder.decode(T.self, from: data)
+        return try decoder.decode(type, from: data)
     }
 
     private func expectSuccess(response: URLResponse) throws {
