@@ -10,12 +10,10 @@ public struct ArtworksSearchResult: Codable {
 }
 
 public struct Artwork: Codable, Identifiable {
-    public typealias Id = Int
-
-    public var id: Id { objectID }
+    public var id: Int { objectID }
 
     /// Identifying number for each artwork (unique, can be used as key field)
-    public let objectID: Id
+    public let objectID: Int
 
     /// When "true" indicates a popular and important artwork in the collection
     public let isHighlight: Bool
@@ -307,8 +305,6 @@ public struct MetMuseumEndpoints {
     let urlSession: URLSession
     let decoder = JSONDecoder()
 
-    public typealias Id = Int
-
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
@@ -340,7 +336,7 @@ public struct MetMuseumEndpoints {
      Example request:
      - https://collectionapi.metmuseum.org/public/collection/v1/objects/45734
      */
-    public func artwork(id: Id) async throws -> Artwork {
+    public func artwork(id: Artwork.ID) async throws -> Artwork {
         try await request(
             URLRequest(
                 method: .get,
