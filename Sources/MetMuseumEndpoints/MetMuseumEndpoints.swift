@@ -300,10 +300,12 @@ public struct Tag: Codable {
 /**
  Endpoints for [The Metropolitan Museum of Art Collection API](https://metmuseum.github.io/).
  */
-public struct MetMuseumEndpoints {
+public class MetMuseumEndpoints {
     let baseURL = URL(string: "https://collectionapi.metmuseum.org/public/collection/v1/")!
     let urlSession: URLSession
     let decoder = JSONDecoder()
+    
+    public static let shared = MetMuseumEndpoints()
 
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
